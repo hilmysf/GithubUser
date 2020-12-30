@@ -1,22 +1,35 @@
 package data
 
 import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.Path
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface Api {
-    @GET("search/users")
-    fun getPosts(
-        @Query("q")
-        username: String,
-        @Header("accept")
-        api: String = "aebefc09f98dfabea3d51cb4a817bc1e0671268d"
-    ): Call<PostResponse>
 
     @GET("search/users")
-    fun getPosts(
+    @Headers("Authorization: token aebefc09f98dfabea3d51cb4a817bc1e0671268d")
+    fun getSearch(
+        @Query("q")
+        username: String
+    ): Call<PostResponse>
+
+    @GET("users/{username}")
+    @Headers("Authorization: token aebefc09f98dfabea3d51cb4a817bc1e0671268d")
+    fun getDetail(
         @Path("username")
-        username: String?): Call<PostResponse>
+        username: String
+    ): Call<User>
+
+    @GET("users/{username}/following")
+    @Headers("Authorization: token aebefc09f98dfabea3d51cb4a817bc1e0671268d")
+    fun getFollowing(
+        @Path("username")
+        username: String
+    ): Call<List<User>>
+
+    @GET("users/{username}/followers")
+    @Headers("Authorization: token aebefc09f98dfabea3d51cb4a817bc1e0671268d")
+    fun getFollower(
+        @Path("username")
+        username: String
+    ): Call<List<User>>
 }

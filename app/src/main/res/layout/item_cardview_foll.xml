@@ -81,19 +81,5 @@
             app:layout_constraintStart_toEndOf="@+id/img_user"
             app:layout_constraintTop_toBottomOf="@+id/logo_username" />
 
-<!--        <TextView-->
-<!--            android:id="@+id/tv_organization_detail"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_below="@+id/tv_username_detail"-->
-<!--            android:layout_marginStart="8dp"-->
-<!--            android:layout_marginTop="8dp"-->
-<!--            android:layout_toEndOf="@id/logo_organization"-->
-<!--            android:text="@string/location_user"-->
-<!--            android:textColor="@color/Background"-->
-<!--            android:textSize="14sp"-->
-<!--            app:layout_constraintStart_toEndOf="@+id/logo_organization"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/tv_username_detail" />-->
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
