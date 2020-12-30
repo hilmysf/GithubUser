@@ -15,11 +15,11 @@ data class User(
     @field:SerializedName("following_url")
     val followingUrl: String? = null,
     @field:SerializedName("company")
-    val company: String? = null,
+    val company: String? = "-",
     @field:SerializedName("repos_url")
     val reposUrl: String? = null,
     @field:SerializedName("location")
-    val location: String? = null,
+    val location: String? = "-",
     @field:SerializedName("name")
     val name: String? = null
 

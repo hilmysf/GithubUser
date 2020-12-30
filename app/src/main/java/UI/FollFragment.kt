@@ -9,9 +9,9 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.picodiploma.githubuser.R
-import kotlinx.android.synthetic.main.fragment_following.*
+import kotlinx.android.synthetic.main.fragment_foll.*
 
-class FollowingFragment : Fragment() {
+class FollFragment : Fragment() {
     private lateinit var detailAdapter: DetailAdapter
     private lateinit var detailViewModel: DetailViewModel
 
@@ -21,7 +21,7 @@ class FollowingFragment : Fragment() {
 
         @JvmStatic
         fun newInstance(index: Int) =
-            FollowingFragment().apply {
+            FollFragment().apply {
                 arguments = Bundle().apply {
                     putInt(ARG_SECTION_NUMBER, index)
                 }
@@ -32,7 +32,7 @@ class FollowingFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_following, container, false)
+        return inflater.inflate(R.layout.fragment_foll, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -66,17 +66,30 @@ class FollowingFragment : Fragment() {
             detailViewModel.setFollowers(username.toString())
             detailViewModel.listUsers.observe(this, Observer {
                 detailAdapter.setData(it)
+                showLoading(false)
             })
         }
+        tv_empty_message.visibility = View.VISIBLE
     }
 
     fun getFollowingViewModel() {
+        showLoading(true)
         if (arguments != null) {
             val username = activity?.intent?.getStringExtra(EXTRA_USER)
             detailViewModel.setFollowing(username.toString())
             detailViewModel.listUsers.observe(this, Observer {
                 detailAdapter.setData(it)
+                showLoading(false)
             })
+        }
+        tv_empty_message.visibility = View.VISIBLE
+    }
+
+    private fun showLoading(state: Boolean) {
+        if (state) {
+            progressBar.visibility = View.VISIBLE
+        } else {
+            progressBar.visibility = View.GONE
         }
     }
 }

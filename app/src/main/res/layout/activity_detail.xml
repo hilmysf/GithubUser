@@ -1,93 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:fillViewport="true"
     tools:context="UI.DetailActivity">
 
-    <FrameLayout
-        android:id="@+id/frameLayout"
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:background="@color/Background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/img_user"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-                app:civ_border_color="@color/Card"
-                app:civ_border_width="2dp" />
-
-            <TextView
-                android:id="@+id/tv_name_detail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="7dp"
-                android:text="@string/nama_user"
-                android:textAlignment="center"
-                android:textColor="@color/Card"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tv_username_detail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="3dp"
-                android:text="@string/username_user"
-                android:textColor="@color/Card" />
-
-            <TextView
-                android:id="@+id/tv_company_detail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="3dp"
-                android:text="@string/company_user"
-                android:textColor="@color/Card" />
-
-            <TextView
-                android:id="@+id/tv_location_detail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="3dp"
-                android:text="@string/location_user"
-                android:textColor="@color/Card" />
-        </LinearLayout>
-    </FrameLayout>
-
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabs"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
-        app:tabTextColor="@android:color/white" />
+        android:orientation="vertical">
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/vp_foll"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tabs" />
+        <FrameLayout
+            android:id="@+id/frameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="@color/Background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/img_user"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    app:civ_border_color="@color/Card"
+                    app:civ_border_width="2dp" />
+
+                <TextView
+                    android:id="@+id/tv_name_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="7dp"
+                    android:text="@string/nama_user"
+                    android:textAlignment="center"
+                    android:textColor="@color/Card"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_username_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="3dp"
+                    android:text="@string/username_user"
+                    android:textColor="@color/Card" />
+
+                <TextView
+                    android:id="@+id/tv_company_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="3dp"
+                    android:text="@string/company_user"
+                    android:textColor="@color/Card" />
+
+                <TextView
+                    android:id="@+id/tv_location_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="3dp"
+                    android:text="@string/location_user"
+                    android:textColor="@color/Card" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+            app:tabTextColor="@android:color/white" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vp_foll"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tabs" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

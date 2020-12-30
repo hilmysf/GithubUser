@@ -17,7 +17,7 @@ class SectionsPagerAdapter(private val mContext: Context, fm: FragmentManager) :
     )
 
     override fun getItem(position: Int): Fragment {
-        var fragment: Fragment? = FollowingFragment.newInstance(position + 1)
+        var fragment: Fragment? = FollFragment.newInstance(position + 1)
         return fragment as Fragment
     }
 

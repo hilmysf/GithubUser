@@ -4,82 +4,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card_view"
     android:layout_width="match_parent"
-    android:layout_height="120dp"
-    android:layout_gravity="center"
-    android:layout_marginHorizontal="8dp"
-    android:layout_marginVertical="2dp"
-    app:cardCornerRadius="16dp">
+    android:layout_height="80dp"
+    android:layout_gravity="center">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/Card"
-        android:padding="8dp">
+        android:background="@color/Card">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/img_user"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_centerVertical="true"
             android:layout_marginStart="8dp"
-            android:layout_marginBottom="8dp"
             app:civ_border_color="@color/colorPrimary"
             app:civ_border_width="2dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tv_name_detail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_toEndOf="@id/img_user"
-            android:text="@string/nama_user"
-            android:textColor="@color/Background"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/img_user"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <ImageView
             android:id="@+id/logo_username"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:layout_below="@id/tv_name_detail"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
             android:layout_toRightOf="@+id/img_user"
             android:src="@drawable/ic_baseline_alternate_email_24"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/img_user"
-            app:layout_constraintTop_toBottomOf="@+id/tv_name_detail" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_name_detail"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
             android:layout_toEndOf="@id/logo_username"
             android:text="@string/username_user"
             android:textColor="@color/Background"
             android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/logo_username"
-            app:layout_constraintTop_toBottomOf="@+id/tv_name_detail" />
-
-        <ImageView
-            android:id="@+id/logo_organization"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_below="@id/logo_username"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_toRightOf="@+id/img_user"
-            android:src="@drawable/ic_baseline_business_24"
-            app:layout_constraintStart_toEndOf="@+id/img_user"
-            app:layout_constraintTop_toBottomOf="@+id/logo_username" />
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

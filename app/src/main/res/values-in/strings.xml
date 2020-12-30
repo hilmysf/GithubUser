@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Github Users</string>
+    <string name="nama_user">Nama Pengguna</string>
+    <string name="username_user">Username Pengguna</string>
+    <string name="location_user">Lokasi Pengguna</string>
+    <string name="company_user">Perusahaan Pengguna</string>
+    <string name="tab1">Mengikuti</string>
+    <string name="tab2">Diikuti</string>
+    <string name="title">Github User\'s</string>
+    <string name="bigtext">Ayo Mulai</string>
+    <string name="minitext">Temukan Developers hebat, bergabunglah dengan mereka untuk membuat sesuatu yang hebat</string>
+    <string name="change_language_settings">Pengaturan Bahasa</string>
+    <string name="empty_message">Tidak ada apapun disini</string>
+</resources>

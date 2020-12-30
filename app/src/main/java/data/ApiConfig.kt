@@ -5,11 +5,12 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class ApiConfig{
+class ApiConfig {
     companion object {
         val url = "https://api.github.com/"
-        fun getApiService(): Api{
-            val loggingIterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+        fun getApiService(): Api {
+            val loggingIterceptor =
+                HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
 
             val client = OkHttpClient.Builder()
                 .addInterceptor(loggingIterceptor)

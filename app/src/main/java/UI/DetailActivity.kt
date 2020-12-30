@@ -12,34 +12,32 @@ import com.dicoding.picodiploma.githubuser.R
 import com.google.android.material.tabs.TabLayout
 import data.User
 import kotlinx.android.synthetic.main.activity_detail.*
+import kotlinx.android.synthetic.main.item_cardview_user.view.*
 
 class DetailActivity : AppCompatActivity() {
     companion object {
         const val EXTRA_USER = "extra_user"
     }
 
-//    private lateinit var detailAdapter: DetailAdapter
     private lateinit var detailViewModel: DetailViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
         supportActionBar?.setDisplayShowHomeEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-//        detailAdapter = DetailAdapter()
+
         detailViewModel = ViewModelProvider(
             this,
             ViewModelProvider.NewInstanceFactory()
         ).get(DetailViewModel::class.java)
-        val sectionsPagerAdapter =
-            SectionsPagerAdapter(this, supportFragmentManager)
-        val viewPager: ViewPager = findViewById(R.id.vp_foll)
-        viewPager.adapter = sectionsPagerAdapter
-        val tabs: TabLayout = findViewById(R.id.tabs)
-        tabs.setupWithViewPager(viewPager)
-        supportActionBar?.elevation = 0f
+        setupPager()
+        getMainViewModel()
 
+    }
+
+    fun getMainViewModel() {
         val username = intent.getStringExtra(EXTRA_USER)
-
         supportActionBar?.title = username.toString()
         detailViewModel.setDetail(username.toString())
         detailViewModel.users.observe(this, Observer {
@@ -52,15 +50,15 @@ class DetailActivity : AppCompatActivity() {
             tv_location_detail.text = it?.location
             tv_company_detail.text = it?.company
         })
-//        val moveDetail = Intent(this, DetailActivity::class.java)
-//        moveDetail.putExtra(EXTRA_USER, username.toString())
-//        startActivity(moveDetail)
-//
-//        val newBundle = Bundle()
-//        newBundle.putString(FollowingFragment.EXTRA_USER, username.toString())
-//        val objects = FollowingFragment()
-//        objects.arguments = newBundle
+    }
 
+    fun setupPager() {
+        val sectionsPagerAdapter =
+            SectionsPagerAdapter(this, supportFragmentManager)
+        val viewPager: ViewPager = findViewById(R.id.vp_foll)
+        viewPager.adapter = sectionsPagerAdapter
+        val tabs: TabLayout = findViewById(R.id.tabs)
+        tabs.setupWithViewPager(viewPager)
     }
 
     override fun onSupportNavigateUp(): Boolean {

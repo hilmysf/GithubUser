@@ -10,21 +10,21 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class DetailViewModel: ViewModel() {
+class DetailViewModel : ViewModel() {
     val _users = MutableLiveData<User?>()
     val users: LiveData<User?> = _users
     val _listUsers = MutableLiveData<List<User?>>()
     val listUsers: LiveData<List<User?>> = _listUsers
 
     fun setDetail(users: String): LiveData<User?> {
-        ApiConfig.getApiService().getDetail(users).enqueue(object: Callback<User> {
+        ApiConfig.getApiService().getDetail(users).enqueue(object : Callback<User> {
             override fun onFailure(call: Call<User>, t: Throwable) {
                 Log.e("Error", t.message.toString())
             }
 
             override fun onResponse(call: Call<User>, response: Response<User>) {
                 Log.e("Success", response.message())
-                if (response.isSuccessful){
+                if (response.isSuccessful) {
                     response.body()?.let {
                         _users.value = it
                     }
@@ -35,14 +35,14 @@ class DetailViewModel: ViewModel() {
     }
 
     fun setFollowing(users: String): LiveData<List<User?>> {
-        ApiConfig.getApiService().getFollowing(users).enqueue(object: Callback<List<User>> {
+        ApiConfig.getApiService().getFollowing(users).enqueue(object : Callback<List<User>> {
             override fun onFailure(call: Call<List<User>>, t: Throwable) {
                 Log.e("Error", t.message.toString())
             }
 
             override fun onResponse(call: Call<List<User>>, response: Response<List<User>>) {
                 Log.e("Success", response.message())
-                if (response.isSuccessful){
+                if (response.isSuccessful) {
                     response.body()?.let {
                         _listUsers.postValue(it)
                     }
@@ -51,15 +51,16 @@ class DetailViewModel: ViewModel() {
         })
         return listUsers
     }
+
     fun setFollowers(users: String): LiveData<List<User?>> {
-        ApiConfig.getApiService().getFollower(users).enqueue(object: Callback<List<User>> {
+        ApiConfig.getApiService().getFollower(users).enqueue(object : Callback<List<User>> {
             override fun onFailure(call: Call<List<User>>, t: Throwable) {
                 Log.e("Error", t.message.toString())
             }
 
             override fun onResponse(call: Call<List<User>>, response: Response<List<User>>) {
                 Log.e("Success", response.message())
-                if (response.isSuccessful){
+                if (response.isSuccessful) {
                     response.body()?.let {
                         _listUsers.postValue(it)
                     }
