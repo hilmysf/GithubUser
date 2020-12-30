@@ -23,5 +23,4 @@ data class User(
     @field:SerializedName("name")
     val name: String? = null
 
-) : Parcelable {
-}
+) : Parcelable

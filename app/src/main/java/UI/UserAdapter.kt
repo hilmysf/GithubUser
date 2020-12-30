@@ -48,7 +48,7 @@ class UserAdapter :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewViewHolder {
-        var view: View =
+        val view: View =
             LayoutInflater.from(parent.context).inflate(R.layout.item_cardview_user, parent, false)
         return CardViewViewHolder(view)
     }

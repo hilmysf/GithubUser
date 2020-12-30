@@ -11,19 +11,19 @@ import com.dicoding.picodiploma.githubuser.R
 class SectionsPagerAdapter(private val mContext: Context, fm: FragmentManager) :
     FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
     @StringRes
-    private val TAB_TITLES = intArrayOf(
+    private val tabTitles = intArrayOf(
         R.string.tab1,
         R.string.tab2
     )
 
     override fun getItem(position: Int): Fragment {
-        var fragment: Fragment? = FollFragment.newInstance(position + 1)
+        val fragment: Fragment? = FollFragment.newInstance(position + 1)
         return fragment as Fragment
     }
 
     @Nullable
     override fun getPageTitle(position: Int): CharSequence? {
-        return mContext.resources.getString(TAB_TITLES[position])
+        return mContext.resources.getString(tabTitles[position])
     }
 
     override fun getCount(): Int {

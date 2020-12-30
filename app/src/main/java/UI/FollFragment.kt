@@ -37,6 +37,7 @@ class FollFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         var index = 1
         if (arguments != null) {
             index = arguments?.getInt(ARG_SECTION_NUMBER, 0) as Int
@@ -53,14 +54,14 @@ class FollFragment : Fragment() {
         }
     }
 
-    fun setupAdapter() {
+    private fun setupAdapter() {
         detailAdapter = DetailAdapter()
         rv_following.layoutManager = LinearLayoutManager(context)
         rv_following.adapter = detailAdapter
         rv_following.setHasFixedSize(true)
     }
 
-    fun getFollowersViewModel() {
+    private fun getFollowersViewModel() {
         if (arguments != null) {
             val username = activity?.intent?.getStringExtra(EXTRA_USER)
             detailViewModel.setFollowers(username.toString())
@@ -72,7 +73,7 @@ class FollFragment : Fragment() {
         tv_empty_message.visibility = View.VISIBLE
     }
 
-    fun getFollowingViewModel() {
+    private fun getFollowingViewModel() {
         showLoading(true)
         if (arguments != null) {
             val username = activity?.intent?.getStringExtra(EXTRA_USER)

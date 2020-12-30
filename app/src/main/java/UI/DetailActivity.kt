@@ -1,6 +1,5 @@
 package UI
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -10,9 +9,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.dicoding.picodiploma.githubuser.R
 import com.google.android.material.tabs.TabLayout
-import data.User
 import kotlinx.android.synthetic.main.activity_detail.*
-import kotlinx.android.synthetic.main.item_cardview_user.view.*
 
 class DetailActivity : AppCompatActivity() {
     companion object {
@@ -36,7 +33,7 @@ class DetailActivity : AppCompatActivity() {
 
     }
 
-    fun getMainViewModel() {
+    private fun getMainViewModel() {
         val username = intent.getStringExtra(EXTRA_USER)
         supportActionBar?.title = username.toString()
         detailViewModel.setDetail(username.toString())
@@ -52,7 +49,7 @@ class DetailActivity : AppCompatActivity() {
         })
     }
 
-    fun setupPager() {
+    private fun setupPager() {
         val sectionsPagerAdapter =
             SectionsPagerAdapter(this, supportFragmentManager)
         val viewPager: ViewPager = findViewById(R.id.vp_foll)

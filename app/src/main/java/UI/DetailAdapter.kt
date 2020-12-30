@@ -34,7 +34,7 @@ class DetailAdapter: RecyclerView.Adapter<DetailAdapter.CardViewViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DetailAdapter.CardViewViewHolder {
-        var view: View =
+        val view: View =
             LayoutInflater.from(parent.context).inflate(R.layout.item_cardview_foll, parent, false)
         return CardViewViewHolder(view)
     }

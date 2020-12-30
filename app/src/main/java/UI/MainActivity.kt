@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         rv_user.setHasFixedSize(true)
 
         val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
-        val searchView = findViewById<SearchView>(R.id.searchView) as SearchView
+        val searchView = findViewById<SearchView>(R.id.searchView)
         searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
         searchView.queryHint = "Search"
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
