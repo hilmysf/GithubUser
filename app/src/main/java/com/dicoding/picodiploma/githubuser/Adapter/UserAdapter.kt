@@ -1,5 +1,7 @@
-package UI
+package com.dicoding.picodiploma.githubuser.Adapter
 
+import com.dicoding.picodiploma.githubuser.UI.Activity.DetailActivity
+import com.dicoding.picodiploma.githubuser.UI.Fragment.FollFragment
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.dicoding.picodiploma.githubuser.R
-import data.User
+import com.dicoding.picodiploma.githubuser.data.User
 import kotlinx.android.synthetic.main.activity_detail.view.img_user
 import kotlinx.android.synthetic.main.item_cardview_user.view.*
 
@@ -35,7 +37,7 @@ class UserAdapter :
                 itemView.setOnClickListener {
                     Toast.makeText(
                         itemView.context,
-                        "Kamu memilih " + user?.login,
+                        resources.getString(R.string.user_choose) + user?.login,
                         Toast.LENGTH_SHORT
                     ).show()
                     val moveDetail = Intent(itemView.context, DetailActivity::class.java)

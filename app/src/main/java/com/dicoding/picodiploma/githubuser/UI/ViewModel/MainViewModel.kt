@@ -1,12 +1,12 @@
-package UI
+package com.dicoding.picodiploma.githubuser.UI.ViewModel
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import data.ApiConfig
-import data.PostResponse
-import data.User
+import com.dicoding.picodiploma.githubuser.data.ApiConfig
+import com.dicoding.picodiploma.githubuser.data.PostResponse
+import com.dicoding.picodiploma.githubuser.data.User
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

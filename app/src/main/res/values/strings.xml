@@ -4,12 +4,17 @@
     <string name="username_user">User Username</string>
     <string name="location_user">User Location</string>
     <string name="company_user">User Company</string>
-     <string name="tab1">Following</string>
+    <string name="tab1">Following</string>
     <string name="tab2">Followers</string>
     <string name="title">Github User\'s</string>
     <string name="bigtext">Get Started</string>
     <string name="minitext">Find great developers, then join them to create something cool</string>
     <string name="change_language_settings">Language Settings</string>
+    <string name="favorite_toolbar">Favorite</string>
     <string name="empty_message">Nothing to see here</string>
     <string name="splash_screen" translatable="false">GitHub</string>
+    <string name="favorite_title">Favorite</string>
+    <string name="user_choose">You choose\u0020</string>
+    <string name="add_favorite">Added to favorite</string>
+    <string name="delete_favorite">Deleted from favorite</string>
 </resources>

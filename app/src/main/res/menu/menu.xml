@@ -2,7 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/action_favorite"
+        android:title="@string/favorite_toolbar"
+        android:icon="@drawable/favorite_fill"
+        app:showAsAction="always"/>
+    <item
         android:id="@+id/action_change_settings"
         android:title="@string/change_language_settings"
-        app:showAsAction="never"/>
+        android:icon="@drawable/ic_baseline_settings_24"
+        app:showAsAction="always"/>
 </menu>

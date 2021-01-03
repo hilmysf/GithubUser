@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/Background"
-    tools:context="UI.MainActivity">
+    tools:context="com.dicoding.picodiploma.githubuser.UI.Activity.MainActivity">
 
     <SearchView
         android:id="@+id/searchView"
@@ -69,6 +69,19 @@
         android:id="@+id/progressBar"
         android:layout_width="96dp"
         android:layout_height="96dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_empty_message_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/empty_message"
+        android:textColor="@color/Card"
+        android:textSize="18sp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

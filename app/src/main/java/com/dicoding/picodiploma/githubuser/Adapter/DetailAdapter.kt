@@ -1,4 +1,4 @@
-package UI
+package com.dicoding.picodiploma.githubuser.Adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,8 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.dicoding.picodiploma.githubuser.R
-import data.User
+import com.dicoding.picodiploma.githubuser.data.User
 import kotlinx.android.synthetic.main.activity_detail.view.img_user
+import kotlinx.android.synthetic.main.item_cardview_foll.view.*
 import kotlinx.android.synthetic.main.item_cardview_user.view.tv_username
 
 class DetailAdapter: RecyclerView.Adapter<DetailAdapter.CardViewViewHolder>() {
@@ -33,7 +34,7 @@ class DetailAdapter: RecyclerView.Adapter<DetailAdapter.CardViewViewHolder>() {
     }
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DetailAdapter.CardViewViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewViewHolder {
         val view: View =
             LayoutInflater.from(parent.context).inflate(R.layout.item_cardview_foll, parent, false)
         return CardViewViewHolder(view)
@@ -43,7 +44,7 @@ class DetailAdapter: RecyclerView.Adapter<DetailAdapter.CardViewViewHolder>() {
         return users.size
     }
 
-    override fun onBindViewHolder(holder: DetailAdapter.CardViewViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CardViewViewHolder, position: Int) {
         holder.bind(users[position])
     }
 }

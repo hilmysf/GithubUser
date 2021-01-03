@@ -1,4 +1,4 @@
-package data
+package com.dicoding.picodiploma.githubuser.data
 
 import com.google.gson.annotations.SerializedName
 

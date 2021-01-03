@@ -1,5 +1,7 @@
-package UI
+package com.dicoding.picodiploma.githubuser.UI.Activity
 
+import com.dicoding.picodiploma.githubuser.UI.ViewModel.MainViewModel
+import com.dicoding.picodiploma.githubuser.Adapter.UserAdapter
 import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
@@ -15,13 +17,14 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.picodiploma.githubuser.R
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.progressBar
+import kotlinx.android.synthetic.main.fragment_foll.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var adapter: UserAdapter
     private lateinit var mainViewModel: MainViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_main)
         setActionBarTitle(getString(R.string.title))
         showRecyclerCardView()
@@ -44,9 +47,10 @@ class MainActivity : AppCompatActivity() {
                 val user = query.toString()
                 if (user.isEmpty()) {
                     showLoading(true)
+                    tv_empty_message_main.visibility = View.VISIBLE
                     return true
                 } else {
-                    showLoading(false)
+                    showLoading(true)
                     mainViewModel.setUser(user)
                     img_es.visibility = View.GONE
                     tv_bigtext.visibility = View.GONE
@@ -55,8 +59,13 @@ class MainActivity : AppCompatActivity() {
                 return true
             }
         })
-        mainViewModel.listUsers.observe(this, Observer {
-            adapter.setData(it)
+        mainViewModel.listUsers.observe(this, Observer { userItems ->
+            if (userItems != null){
+                adapter.setData(userItems)
+                showLoading(false)
+            }else{
+                tv_empty_message_main.visibility = View.VISIBLE
+            }
         })
 
     }
@@ -87,6 +96,10 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.action_change_settings) {
             val mIntent = Intent(Settings.ACTION_LOCALE_SETTINGS)
+            startActivity(mIntent)
+        }
+        else{
+            val mIntent = Intent(this, FavoriteActivity::class.java)
             startActivity(mIntent)
         }
         return super.onOptionsItemSelected(item)

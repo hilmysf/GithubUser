@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/Card"
     android:gravity="center"
-    tools:context="UI.SplashActivity">
+    tools:context="com.dicoding.picodiploma.githubuser.UI.Activity.SplashActivity">
 
     <ImageView
         android:id="@+id/logo"

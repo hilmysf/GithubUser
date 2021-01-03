@@ -1,5 +1,6 @@
-package UI
+package com.dicoding.picodiploma.githubuser.Adapter
 
+import com.dicoding.picodiploma.githubuser.UI.Fragment.FollFragment
 import android.content.Context
 import androidx.annotation.Nullable
 import androidx.annotation.StringRes

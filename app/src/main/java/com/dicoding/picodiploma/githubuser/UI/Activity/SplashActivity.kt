@@ -1,4 +1,4 @@
-package UI
+package com.dicoding.picodiploma.githubuser.UI.Activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

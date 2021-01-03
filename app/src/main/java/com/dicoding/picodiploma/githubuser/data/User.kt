@@ -1,11 +1,17 @@
-package data
+package com.dicoding.picodiploma.githubuser.data
 
 import android.os.Parcelable
+import androidx.room.Entity
+import androidx.room.Index
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
+@Entity(tableName = "user_table", indices = [Index(value = ["login"], unique = true )])
 data class User(
+    @PrimaryKey(autoGenerate = true)
+    val id: Int = 0,
     @field:SerializedName("avatar_url")
     val avatarUrl: String? = null,
     @field:SerializedName("login")
@@ -21,6 +27,7 @@ data class User(
     @field:SerializedName("location")
     val location: String? = "-",
     @field:SerializedName("name")
-    val name: String? = null
+    val name: String? = null,
+    var isFavorite: Boolean? = false
 
 ) : Parcelable

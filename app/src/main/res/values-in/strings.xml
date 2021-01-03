@@ -11,5 +11,10 @@
     <string name="bigtext">Ayo Mulai</string>
     <string name="minitext">Temukan Developers hebat, bergabunglah dengan mereka untuk membuat sesuatu yang hebat</string>
     <string name="change_language_settings">Pengaturan Bahasa</string>
+    <string name="favorite_toolbar">Favorite</string>
     <string name="empty_message">Tidak ada apapun disini</string>
+    <string name="favorite_title">Favorit</string>
+    <string name="user_choose">Kamu memilih\u0020</string>
+    <string name="add_favorite">Ditambahkan ke favorit</string>
+    <string name="delete_favorite">Dihapus dari favorit</string>
 </resources>
