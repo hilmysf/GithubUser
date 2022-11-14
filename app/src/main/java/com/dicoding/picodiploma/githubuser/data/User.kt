@@ -30,4 +30,5 @@ data class User(
     val name: String? = null,
     var isFavorite: Boolean? = false
 
+
 ) : Parcelable

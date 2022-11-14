@@ -3,6 +3,8 @@
     package="com.dicoding.picodiploma.githubuser">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
@@ -11,12 +13,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UI.Activity.FavoriteActivity"
-            android:parentActivityName=".UI.Activity.MainActivity"/>
-        <activity android:name=".UI.Activity.DetailActivity" />
-        <activity android:name=".UI.Activity.MainActivity" />
+        <provider
+            android:name=".provider.FavoriteProvider"
+            android:authorities="com.dicoding.picodiploma.githubuser"
+            android:enabled="true"
+            android:exported="true"/>
+
+        <receiver
+            android:name=".AlarmReceiver"
+            android:enabled="true"
+            android:exported="true" />
+
         <activity
-            android:name=".UI.Activity.SplashActivity"
+            android:name=".ui.activity.FavoriteActivity"
+            android:parentActivityName=".ui.activity.MainActivity" />
+        <activity android:name=".ui.activity.DetailActivity" />
+        <activity android:name=".ui.activity.MainActivity" />
+        <activity
+            android:name=".ui.activity.SplashActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

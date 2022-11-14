@@ -10,6 +10,7 @@
     <string name="bigtext">Get Started</string>
     <string name="minitext">Find great developers, then join them to create something cool</string>
     <string name="change_language_settings">Language Settings</string>
+    <string name="change_alarm_settings">Alarm Settings</string>
     <string name="favorite_toolbar">Favorite</string>
     <string name="empty_message">Nothing to see here</string>
     <string name="splash_screen" translatable="false">GitHub</string>

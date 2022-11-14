@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/Background"
-    tools:context="com.dicoding.picodiploma.githubuser.UI.Activity.MainActivity">
+    tools:context="com.dicoding.picodiploma.githubuser.ui.activity.MainActivity">
 
     <SearchView
         android:id="@+id/searchView"

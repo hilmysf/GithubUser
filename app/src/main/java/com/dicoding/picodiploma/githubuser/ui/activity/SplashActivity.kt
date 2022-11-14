@@ -1,4 +1,4 @@
-package com.dicoding.picodiploma.githubuser.UI.Activity
+package com.dicoding.picodiploma.githubuser.ui.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,6 +6,9 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import com.dicoding.picodiploma.githubuser.R
+import android.os.AsyncTask
+import android.view.View
+
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

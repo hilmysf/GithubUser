@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:fillViewport="true"
     android:orientation="vertical"
-    tools:context="com.dicoding.picodiploma.githubuser.UI.Activity.DetailActivity">
+    tools:context="com.dicoding.picodiploma.githubuser.ui.activity.DetailActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

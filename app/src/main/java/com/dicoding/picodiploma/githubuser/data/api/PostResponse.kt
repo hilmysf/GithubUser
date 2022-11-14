@@ -1,5 +1,6 @@
-package com.dicoding.picodiploma.githubuser.data
+package com.dicoding.picodiploma.githubuser.data.api
 
+import com.dicoding.picodiploma.githubuser.data.User
 import com.google.gson.annotations.SerializedName
 
 data class PostResponse(

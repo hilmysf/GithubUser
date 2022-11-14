@@ -1,28 +1,32 @@
-package com.dicoding.picodiploma.githubuser.UI.Activity
+package com.dicoding.picodiploma.githubuser.ui.activity
 
-import com.dicoding.picodiploma.githubuser.UI.ViewModel.MainViewModel
-import com.dicoding.picodiploma.githubuser.Adapter.UserAdapter
 import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.SearchView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.dicoding.picodiploma.githubuser.adapter.UserAdapter
+import com.dicoding.picodiploma.githubuser.AlarmReceiver
 import com.dicoding.picodiploma.githubuser.R
+import com.dicoding.picodiploma.githubuser.ui.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_main.progressBar
-import kotlinx.android.synthetic.main.fragment_foll.*
+
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var adapter: UserAdapter
     private lateinit var mainViewModel: MainViewModel
+    private lateinit var alarmReceiver: AlarmReceiver
+    var state = true
+    private lateinit var actionAlarm: MenuItem
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -33,7 +37,7 @@ class MainActivity : AppCompatActivity() {
             ViewModelProvider.NewInstanceFactory()
         ).get(MainViewModel::class.java)
         rv_user.setHasFixedSize(true)
-
+        alarmReceiver = AlarmReceiver()
         val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
         val searchView = findViewById<SearchView>(R.id.searchView)
         searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
@@ -60,10 +64,10 @@ class MainActivity : AppCompatActivity() {
             }
         })
         mainViewModel.listUsers.observe(this, Observer { userItems ->
-            if (userItems != null){
+            if (userItems != null) {
                 adapter.setData(userItems)
                 showLoading(false)
-            }else{
+            } else {
                 tv_empty_message_main.visibility = View.VISIBLE
             }
         })
@@ -90,17 +94,45 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
+        actionAlarm = menu.findItem(R.id.action_set_alarm)
         return super.onCreateOptionsMenu(menu)
     }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.action_change_settings) {
-            val mIntent = Intent(Settings.ACTION_LOCALE_SETTINGS)
-            startActivity(mIntent)
+    fun updateIcon(state: Boolean) {
+        if (state) {
+            actionAlarm.setIcon(R.drawable.ic_baseline_notifications_off_24)
         }
         else{
-            val mIntent = Intent(this, FavoriteActivity::class.java)
-            startActivity(mIntent)
+            actionAlarm.setIcon(R.drawable.ic_baseline_notifications_24)
+        }
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.action_change_settings -> {
+                val mIntent = Intent(Settings.ACTION_LOCALE_SETTINGS)
+                startActivity(mIntent)
+            }
+            R.id.action_favorite -> {
+                val mIntent = Intent(this, FavoriteActivity::class.java)
+                startActivity(mIntent)
+            }
+            R.id.action_set_alarm -> {
+                val time = "01:55"
+                val message = "Bangun bos"
+                if (state) {
+                    alarmReceiver.setRepeatingAlarm(
+                        this, AlarmReceiver.TYPE_REPEATING,
+                        time,
+                        message
+                    )
+                    updateIcon(state)
+                    state = false
+                }
+                else{
+                    alarmReceiver.cancelAlarm(this, AlarmReceiver.TYPE_REPEATING)
+                    updateIcon(state)
+                    state = true
+                }
+            }
         }
         return super.onOptionsItemSelected(item)
     }

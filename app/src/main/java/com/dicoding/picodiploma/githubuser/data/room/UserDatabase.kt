@@ -1,10 +1,10 @@
-package com.dicoding.picodiploma.githubuser.data
+package com.dicoding.picodiploma.githubuser.data.room
 
 import android.content.Context
-import android.service.autofill.UserData
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.dicoding.picodiploma.githubuser.data.User
 
 @Database(entities = [User::class], version = 1, exportSchema = true)
 abstract class UserDatabase : RoomDatabase() {
@@ -15,14 +15,15 @@ abstract class UserDatabase : RoomDatabase() {
         @Volatile
         private var INSTANCE: UserDatabase? = null
 
-        fun getDatabase(context: Context): UserDatabase {
-            val tempInstance = INSTANCE
+        fun getDatabase(context: Context?): UserDatabase {
+            val tempInstance =
+                INSTANCE
             if (tempInstance != null) {
                 return tempInstance
             }
             synchronized(this) {
                 val instance = Room.databaseBuilder(
-                    context.applicationContext,
+                    context?.applicationContext!!,
                     UserDatabase::class.java,
                     "user_database"
                 ).build()

@@ -1,8 +1,7 @@
-package com.dicoding.picodiploma.githubuser.UI.Fragment
+package com.dicoding.picodiploma.githubuser.ui.fragment
 
-import android.content.Intent
-import com.dicoding.picodiploma.githubuser.Adapter.DetailAdapter
-import com.dicoding.picodiploma.githubuser.UI.ViewModel.DetailViewModel
+import com.dicoding.picodiploma.githubuser.adapter.DetailAdapter
+import com.dicoding.picodiploma.githubuser.ui.viewmodel.DetailViewModel
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,8 +11,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.picodiploma.githubuser.R
-import com.dicoding.picodiploma.githubuser.UI.Activity.FavoriteActivity
-import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.fragment_foll.*
 
 class FollFragment : Fragment() {

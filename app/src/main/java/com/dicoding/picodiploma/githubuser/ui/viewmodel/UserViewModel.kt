@@ -1,25 +1,28 @@
-package com.dicoding.picodiploma.githubuser.UI.ViewModel
+package com.dicoding.picodiploma.githubuser.ui.viewmodel
 
 import android.app.Application
+import android.database.Cursor
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dicoding.picodiploma.githubuser.data.User
-import com.dicoding.picodiploma.githubuser.data.UserDatabase
-import com.dicoding.picodiploma.githubuser.data.UserRepository
+import com.dicoding.picodiploma.githubuser.data.room.UserDatabase
+import com.dicoding.picodiploma.githubuser.data.room.UserRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class UserViewModel(application: Application) :AndroidViewModel(application){
 
     val readAllData: LiveData<List<User>>
+    val readFavoriteData: Cursor
     private val repository: UserRepository
 
     init{
         val userDao = UserDatabase.getDatabase(application).userDao()
-        repository = UserRepository(userDao)
+        repository =
+            UserRepository(userDao)
         readAllData = repository.readAllData
+        readFavoriteData = repository.readFavoriteData
     }
 
     fun addUser(user:User){

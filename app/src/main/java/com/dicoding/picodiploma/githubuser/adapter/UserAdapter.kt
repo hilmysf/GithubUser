@@ -1,7 +1,7 @@
-package com.dicoding.picodiploma.githubuser.Adapter
+package com.dicoding.picodiploma.githubuser.adapter
 
-import com.dicoding.picodiploma.githubuser.UI.Activity.DetailActivity
-import com.dicoding.picodiploma.githubuser.UI.Fragment.FollFragment
+import com.dicoding.picodiploma.githubuser.ui.activity.DetailActivity
+import com.dicoding.picodiploma.githubuser.ui.fragment.FollFragment
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
@@ -41,7 +41,7 @@ class UserAdapter :
                         Toast.LENGTH_SHORT
                     ).show()
                     val moveDetail = Intent(itemView.context, DetailActivity::class.java)
-                    moveDetail.putExtra(DetailActivity.EXTRA_USER, user?.login)
+                    moveDetail.putExtra(DetailActivity.EXTRA_USER, user)
                     moveDetail.putExtra(FollFragment.EXTRA_USER, user?.login)
                     context.startActivity(moveDetail)
                 }

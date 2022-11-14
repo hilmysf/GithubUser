@@ -1,4 +1,4 @@
-package com.dicoding.picodiploma.githubuser.Adapter
+package com.dicoding.picodiploma.githubuser.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +9,6 @@ import com.bumptech.glide.request.RequestOptions
 import com.dicoding.picodiploma.githubuser.R
 import com.dicoding.picodiploma.githubuser.data.User
 import kotlinx.android.synthetic.main.activity_detail.view.img_user
-import kotlinx.android.synthetic.main.item_cardview_foll.view.*
 import kotlinx.android.synthetic.main.item_cardview_user.view.tv_username
 
 class DetailAdapter: RecyclerView.Adapter<DetailAdapter.CardViewViewHolder>() {
